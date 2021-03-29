@@ -62,9 +62,8 @@ function SignupForm({ signup }) {
   }
 
   return (
-    <div className="SignupForm col-6 container">
+    <div className="SignupForm">
       <SignupRadioQuestion />
-      <form></form>
       <button onClick={goToNextQuestion}>Next</button>
     </div>
   );

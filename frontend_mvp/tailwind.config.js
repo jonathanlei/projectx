@@ -1,12 +1,12 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: 'media', // or 'media' or 'class'
+  purge: [],
+  darkMode: "media", // or 'media' or 'class'
   theme: {
-    primary: "red", 
+    primary: "red",
     extend: {},
   },
   variants: {
     extend: {},
   },
   plugins: [],
-}
+};

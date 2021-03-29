@@ -1,7 +1,7 @@
 import { Route, Switch, Redirect } from "react-router-dom";
 import Homepage from "./Homepage";
 import SignupForm from "./SignupForm";
-// import Nav from "./Nav";
+import Nav from "./Nav";
 // import UserContext from "./userContext";
 // import { useContext } from "react";
 
@@ -23,7 +23,7 @@ function Routes({ login, logout, signup, updateProfile, applyToJob}) {
 
   return (
     <>
-      {/* <Nav logout={logout} /> */}
+      <Nav logout={logout} />
       <Switch>
         <Route exact path="/">
           <Homepage />

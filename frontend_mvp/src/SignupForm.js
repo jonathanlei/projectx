@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import SignupRadioQuestion from "./SignupRadioQuestion";
+import signupQuestions from './signupQuestions';
+
 /* SignupForm Component
 Props: signup function from Routes, App
 
@@ -23,7 +25,9 @@ function SignupForm({ signup }) {
   const [formData, setFormData] = useState(initialFormData);
   const [errorMessages, setErrorMessages] = useState([]);
   const [isSigningUp, setIsSigningUp] = useState(false);
-  const [questionNumber, setQuestionNumber] = useState(1);
+  const [questionNumber, setQuestionNumber] = useState(0);
+
+  const [surveyAnswers, setSurveyAnswers] = useState({});
 
   /* Handles form submission */
   function handleSubmit(evt) {
@@ -61,10 +65,29 @@ function SignupForm({ signup }) {
     setFormData((fData) => ({ ...fData, [name]: value }));
   }
 
+  /**
+   * Handles SignupRadioQuestion answer selection
+   * accepts selected radio option data from child
+   **/
+  function handleQuestionSubmission(answerData) {
+    const { selectedOption } = answerData;
+
+    setSurveyAnswers(prevAnswers => ({
+      ...prevAnswers,
+      questionNumber: selectedOption
+    }));
+
+
+    goToNextQuestion();
+  }
+
   return (
     <div className="SignupForm">
-      <SignupRadioQuestion />
-      <button onClick={goToNextQuestion}>Next</button>
+      <SignupRadioQuestion 
+        question={signupQuestions[questionNumber]}
+        handleQuestionSubmission={handleQuestionSubmission}
+      />
+
     </div>
   );
 }

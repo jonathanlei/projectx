@@ -83,12 +83,14 @@ function SignupQuestion({ question, handleQuestionSubmission }) {
         );
       })}
       {answerFeedback ? (
-        <button
-          className="RadioAnswerFeedback bg-gray-100 bg-clip-content h-20 w-auto mx-10 my-4 Cambria p-2 items-center justify-center text-sm font-sans "
-          disabled="true"
-        >
-          {answerFeedback}
-        </button>
+        <div >
+          <button
+            className="RadioAnswerFeedback bg-gray-100 bg-clip-content h-20 w-auto mx-10 my-4 Cambria p-2 items-center justify-center text-sm font-sans "
+            disabled="true"
+          >
+            {answerFeedback}
+          </button>
+        </div>
       ) : null}
       <div className="my-4">
         <button className="inline-flex items-center justify-center h-10 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-500 hover:bg-indigo-500 focus:shadow-outline focus:outline-none">

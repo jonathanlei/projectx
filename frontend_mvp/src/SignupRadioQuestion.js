@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 function SignupQuestion({ question, handleQuestionSubmission }) {
   /* 
   How do you feel about travel planning?
@@ -36,7 +35,7 @@ function SignupQuestion({ question, handleQuestionSubmission }) {
   //   ],
   // };
 
-  /** Updates value of selected radio field */  
+  /** Updates value of selected radio field */
   function handleValueChange(evt) {
     evt.preventDefault();
     const { value } = evt.target;
@@ -46,23 +45,29 @@ function SignupQuestion({ question, handleQuestionSubmission }) {
     });
 
     // display the feedback for newly selected choice
-    const feedback = question.options.find(option => (option[0] === value));
+    const feedback = question.options.find((option) => option[0] === value);
     setAnswerFeedback(feedback[1]);
   }
 
-  /** Handles submit of current question in questionnaire*/  
+  /** Handles submit of current question in questionnaire*/
   function handleSubmit(evt) {
     evt.preventDefault();
 
     // parent function to call to manage the data submitted
     handleQuestionSubmission(prefFormData);
-    
+
     setAnswerFeedback(null);
   }
-
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>{question.question}</h2>
+    <form onSubmit={handleSubmit} className="mt-4">
+      <img
+        src={question.img}
+        alt="question images"
+        classname="content-center"
+      />
+      <h4 className="mb-5 font-sans text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl sm:leading-none">
+        {question.question}
+      </h4>
       {question.options.map((o) => {
         return (
           <>
@@ -79,8 +84,12 @@ function SignupQuestion({ question, handleQuestionSubmission }) {
           </>
         );
       })}
-      <div className="RadioAnswerFeedback">{answerFeedback}</div>
-      <button>Next</button>
+      <div className="RadioAnswerFeedback bg-gray-200 m-4 w-15 text-center bg-auto">
+        {answerFeedback}
+      </div>
+      <button className="inline-flex items-center justify-center h-10 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-500 hover:bg-indigo-500 focus:shadow-outline focus:outline-none">
+        Next
+      </button>
     </form>
   );
 }

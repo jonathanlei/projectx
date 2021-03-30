@@ -1,7 +1,9 @@
+import { signupQuestionImgs } from "./static/assets/index";
 const signupQuestions = [
   {
     tag: "travelplanningfeeling",
     question: "How do you feel about travel planning?",
+    img: signupQuestionImgs[0],
     options: [
       [
         "hate it",
@@ -20,6 +22,7 @@ const signupQuestions = [
   {
     tag: "time",
     question: "How much time & effort do you put into travel planning? ",
+    img: signupQuestionImgs[1],
     options: [
       ["not much", "got it, we know that it can be tedious and time-consuming"],
       ["some", "nice, we hear you. "],
@@ -29,6 +32,7 @@ const signupQuestions = [
   {
     tag: "frequency",
     question: "How often do you plan on traveling after the pandemic?",
+    img: signupQuestionImgs[2],
     options: [
       ["once a month or more", "we love an avid traveler!"],
       [
@@ -39,4 +43,5 @@ const signupQuestions = [
     ],
   },
 ];
+
 export default signupQuestions;

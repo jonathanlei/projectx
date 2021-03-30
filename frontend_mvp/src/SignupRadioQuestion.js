@@ -1,23 +1,5 @@
 import { useState, useEffect } from "react";
 function SignupQuestion({ question, handleQuestionSubmission }) {
-  /* 
-  How do you feel about travel planning?
-
-  hate it - We’ve got you! Your travel curator will tailor travel plans for you, so you can focus on other things.
-
-  it's okay - Gotcha. Having your own travel curator to tailor your travel plans and make your itinerary planning effortless.  
-
-  love it - Great! So do we. Think of us as your new travel planning buddy.
-
-  {
-  tag: "travelplanningfeeling"
-  question: "",
-  options: [ 
-    ("hate it", We’ve got you! Your travel curator will tailor travel plans for you, so you can focus on other things.),
-
-  ]}
-  */
-
   const [prefFormData, setPrefFormData] = useState({ selectedOption: "" });
   const [answerFeedback, setAnswerFeedback] = useState(null);
 

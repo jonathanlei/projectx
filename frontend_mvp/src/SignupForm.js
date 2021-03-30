@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import SignupRadioQuestion from "./SignupRadioQuestion";
 import signupQuestions from "./signupQuestions";
+import SignupPage from "./SignupPage";
 
 /* SignupForm Component
 Props: signup function from Routes, App
@@ -59,12 +60,6 @@ function SignupForm({ signup }) {
     [formData, isSigningUp, signup]
   );
 
-  /* Handles form data changes */
-  function handleChange(evt) {
-    const { name, value } = evt.target;
-    setFormData((fData) => ({ ...fData, [name]: value }));
-  }
-
   /**
    * Handles SignupRadioQuestion answer selection
    * accepts selected radio option data from child
@@ -81,10 +76,14 @@ function SignupForm({ signup }) {
 
   return (
     <div className="SignupForm">
-      <SignupRadioQuestion
-        question={signupQuestions[questionNumber]}
-        handleQuestionSubmission={handleQuestionSubmission}
-      />
+      {questionNumber <= 2 ? (
+        <SignupRadioQuestion
+          question={signupQuestions[questionNumber]}
+          handleQuestionSubmission={handleQuestionSubmission}
+        />
+      ) : (
+        <SignupPage></SignupPage>
+      )}
     </div>
   );
 }

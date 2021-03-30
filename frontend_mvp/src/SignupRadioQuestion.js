@@ -63,9 +63,9 @@ function SignupQuestion({ question, handleQuestionSubmission }) {
       <img
         src={question.img}
         alt="question images"
-        classname="content-center"
+        className="m-auto mb-5"
       />
-      <h4 className="mb-5 font-sans text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl sm:leading-none">
+      <h4 className="mb-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl sm:leading-none Cambria">
         {question.question}
       </h4>
       {question.options.map((o) => {
@@ -84,8 +84,11 @@ function SignupQuestion({ question, handleQuestionSubmission }) {
           </>
         );
       })}
-      <div className="RadioAnswerFeedback bg-gray-200 m-4 w-15 text-center bg-auto">
+      <div>
+
+      <button className="RadioAnswerFeedback bg-gray-100 bg-clip-content h-20 w-auto mx-10 my-4 Cambria p-2 items-center justify-center text-sm font-sans " disabled = "true">
         {answerFeedback}
+      </button>
       </div>
       <button className="inline-flex items-center justify-center h-10 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-500 hover:bg-indigo-500 focus:shadow-outline focus:outline-none">
         Next

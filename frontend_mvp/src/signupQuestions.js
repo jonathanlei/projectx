@@ -39,7 +39,7 @@ const signupQuestions = [
         "couple times a year",
         "we get it, everyone needs to get away once in a while ",
       ],
-      ["once a year", "Plan for the big yearly vacation!"],
+      ["once a year", "let's help you plan for the big yearly vacation!"],
     ],
   },
 ];

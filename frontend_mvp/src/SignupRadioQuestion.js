@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function SignupQuestion({ question, handleQuestionSubmission }) {
   /* 
   How do you feel about travel planning?
@@ -37,17 +37,22 @@ function SignupQuestion({ question, handleQuestionSubmission }) {
 
   /** Updates value of selected radio field */
   function handleValueChange(evt) {
-    evt.preventDefault();
     const { value } = evt.target;
 
     setPrefFormData({
       selectedOption: value,
     });
-
-    // display the feedback for newly selected choice
-    const feedback = question.options.find((option) => option[0] === value);
-    setAnswerFeedback(feedback[1]);
   }
+
+  useEffect(
+    function setFeedback() {
+      const feedback = question.options.find(
+        (option) => option[0] === prefFormData.selectedOption
+      );
+      setAnswerFeedback(feedback ? feedback[1] : null);
+    },
+    [prefFormData]
+  );
 
   /** Handles submit of current question in questionnaire*/
   function handleSubmit(evt) {
@@ -64,26 +69,24 @@ function SignupQuestion({ question, handleQuestionSubmission }) {
       <h4 className="mb-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl sm:leading-none Cambria">
         {question.question}
       </h4>
-      {question.options.map((o) => {
-        return (
-          <>
-            <input
-              type="radio"
-              id={o[0]}
-              name={question.tag}
-              value={o[0]}
-              checked={prefFormData.selectedOption === o[0]}
-              onChange={handleValueChange}
-              className="ml-4 form-radio h-3 w-3 text-red-600"
-            />
-            <label htmlFor={o[0]} className="mx-1">
-              {o[0]}
-            </label>
-          </>
-        );
-      })}
+      {question.options.map((o) => (
+        <>
+          <input
+            type="radio"
+            id={o[0]}
+            name={question.tag}
+            value={o[0]}
+            checked={prefFormData.selectedOption === o[0]}
+            onChange={handleValueChange}
+            className="ml-4 form-radio h-3 w-3 text-red-600"
+          />
+          <label htmlFor={o[0]} className="mx-1">
+            {o[0]}
+          </label>
+        </>
+      ))}
       {answerFeedback ? (
-        <div >
+        <div>
           <button
             className="RadioAnswerFeedback bg-gray-100 bg-clip-content h-20 w-auto mx-10 my-4 Cambria p-2 items-center justify-center text-sm font-sans "
             disabled="true"

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import SignupRadioQuestion from "./SignupRadioQuestion";
-import signupQuestions from './signupQuestions';
+import signupQuestions from "./signupQuestions";
 
 /* SignupForm Component
 Props: signup function from Routes, App
@@ -72,22 +72,19 @@ function SignupForm({ signup }) {
   function handleQuestionSubmission(answerData) {
     const { selectedOption } = answerData;
 
-    setSurveyAnswers(prevAnswers => ({
+    setSurveyAnswers((prevAnswers) => ({
       ...prevAnswers,
-      questionNumber: selectedOption
+      questionNumber: selectedOption,
     }));
-
-
     goToNextQuestion();
   }
 
   return (
     <div className="SignupForm">
-      <SignupRadioQuestion 
+      <SignupRadioQuestion
         question={signupQuestions[questionNumber]}
         handleQuestionSubmission={handleQuestionSubmission}
       />
-
     </div>
   );
 }

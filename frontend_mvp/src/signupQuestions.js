@@ -11,7 +11,7 @@ const signupQuestions = [
       ],
       [
         "it's okay",
-        "Gotcha. Having your own travel curator to tailor your travel plans and make your itinerary planning effortless. ",
+        "Gotcha. Have your own trip curator to tailor your plans and make your itinerary booking effortless. ",
       ],
       [
         "love it",

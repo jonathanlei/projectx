@@ -60,11 +60,7 @@ function SignupQuestion({ question, handleQuestionSubmission }) {
   }
   return (
     <form onSubmit={handleSubmit} className="mt-4">
-      <img
-        src={question.img}
-        alt="question images"
-        className="m-auto mb-5"
-      />
+      <img src={question.img} alt="question images" className="m-auto mb-5" />
       <h4 className="mb-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl sm:leading-none Cambria">
         {question.question}
       </h4>
@@ -78,21 +74,27 @@ function SignupQuestion({ question, handleQuestionSubmission }) {
               value={o[0]}
               checked={prefFormData.selectedOption === o[0]}
               onChange={handleValueChange}
+              className="ml-4 form-radio h-3 w-3 text-red-600"
             />
-            <label for={o[0]}>{o[0]}</label>
-            <br />
+            <label htmlFor={o[0]} className="mx-1">
+              {o[0]}
+            </label>
           </>
         );
       })}
-      <div>
-
-      <button className="RadioAnswerFeedback bg-gray-100 bg-clip-content h-20 w-auto mx-10 my-4 Cambria p-2 items-center justify-center text-sm font-sans " disabled = "true">
-        {answerFeedback}
-      </button>
+      {answerFeedback ? (
+        <button
+          className="RadioAnswerFeedback bg-gray-100 bg-clip-content h-20 w-auto mx-10 my-4 Cambria p-2 items-center justify-center text-sm font-sans "
+          disabled="true"
+        >
+          {answerFeedback}
+        </button>
+      ) : null}
+      <div className="my-4">
+        <button className="inline-flex items-center justify-center h-10 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-500 hover:bg-indigo-500 focus:shadow-outline focus:outline-none">
+          Next
+        </button>
       </div>
-      <button className="inline-flex items-center justify-center h-10 px-6 mr-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-indigo-500 hover:bg-indigo-500 focus:shadow-outline focus:outline-none">
-        Next
-      </button>
     </form>
   );
 }

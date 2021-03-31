@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SigninBox from "./SigninBox";
 function SignupQuestion({ question, handleQuestionSubmission }) {
   const [prefFormData, setPrefFormData] = useState({ selectedOption: "" });
   const [answerFeedback, setAnswerFeedback] = useState(null);
@@ -46,8 +47,8 @@ function SignupQuestion({ question, handleQuestionSubmission }) {
     setAnswerFeedback(null);
   }
   return (
-    <form onSubmit={handleSubmit} className="mt-4">
-      <img src={question.img} alt="question images" className="m-auto mb-5" />
+    <form onSubmit={handleSubmit} className="bg-gray-50">
+      <img src={question.img} alt="question images" className="p-4 m-auto mb-5" />
       <h4 className="mb-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl sm:leading-none Cambria">
         {question.question}
       </h4>
@@ -82,6 +83,7 @@ function SignupQuestion({ question, handleQuestionSubmission }) {
           Next
         </button>
       </div>
+      <SigninBox />
     </form>
   );
 }

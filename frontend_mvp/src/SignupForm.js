@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import SignupRadioQuestion from "./SignupRadioQuestion";
 import signupQuestions from "./signupQuestions";
 import SignupPage from "./SignupPage";
+import SigninBox from "./SigninBox";
 
 /* SignupForm Component
 Props: signup function from Routes, App
@@ -77,10 +78,12 @@ function SignupForm({ signup }) {
   return (
     <div className="SignupForm">
       {questionNumber <= 2 ? (
+        <div className="bg-gray-50 min-h-screen">
         <SignupRadioQuestion
           question={signupQuestions[questionNumber]}
           handleQuestionSubmission={handleQuestionSubmission}
         />
+        </div>
       ) : (
         <SignupPage></SignupPage>
       )}

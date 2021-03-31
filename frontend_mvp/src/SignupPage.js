@@ -1,4 +1,6 @@
-import { Flex, Box, List, Text } from "tailwind-react-ui";
+import { Flex, Box } from "tailwind-react-ui";
+import SigninBox from "./SigninBox";
+
 import signup from "./static/assets/signup.jpg";
 const introTexts = [
   "Get tailormade travel plans in your price range - based on your profile",
@@ -68,12 +70,7 @@ function SignupPage() {
             </form>
           </Box>
         </Flex>
-        <div className="signin bg-gray-200 h-10 w-2/4 m-auto">
-          <p className="pr-5 m-auto text-base text-gray-700 md:text-lg break-normal">
-            already have an account?
-            <a href="/login" className="text-indigo-400"> sign in</a>
-          </p>
-        </div>
+        <SigninBox/>
       </div>
     </div>
   );

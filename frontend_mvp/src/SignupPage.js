@@ -1,5 +1,10 @@
-import { Flex, Box, Image } from "tailwind-react-ui";
+import { Flex, Box, List, Text } from "tailwind-react-ui";
 import signup from "./static/assets/signup.jpg";
+const introTexts = [
+  "Get tailormade travel plans in your price range - based on your profile",
+  "Work with a Wander@ease curator and customize your plan - craft your dream vacation",
+  "No subscription or hidden fees required",
+];
 function SignupPage() {
   return (
     <div class="min-h-screen flex items-center justify-center bg-gray-50 py-1 px-1 sm:px-6 lg:px-8">
@@ -15,6 +20,21 @@ function SignupPage() {
             <img src={signup} className="rounded-md"></img>
           </Box>
           <Box flex={1}>
+            <div className="h-2/4">
+              {introTexts.map((i) => {
+                let sentences = i.split("-");
+                return (
+                  <div className="h-1/3 w-4/5 m-auto mt-4">
+                    <strong className="pr-5 mb-5 text-base text-gray-700 md:text-lg break-normal">
+                      {sentences[0]}
+                    </strong>
+                    <p className="pr-5 mb-5 text-base text-gray-700 md:text-lg break-normal">
+                      {sentences[1] ? "-" + sentences[1] : ""}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
             <h2 class="mt-4 text-center text-2xl font-extrabold text-gray-900">
               Complete your travel profile
             </h2>
@@ -48,6 +68,12 @@ function SignupPage() {
             </form>
           </Box>
         </Flex>
+        <div className="signin bg-gray-200 h-10 w-2/4 m-auto">
+          <p className="pr-5 m-auto text-base text-gray-700 md:text-lg break-normal">
+            already have an account?
+            <a href="/login" className="text-indigo-400"> sign in</a>
+          </p>
+        </div>
       </div>
     </div>
   );

@@ -35,7 +35,7 @@ function SignupPage() {
                 );
               })}
             </div>
-            <h2 class="mt-4 text-center text-2xl font-extrabold text-gray-900">
+            <h2 class="mt-4 text-center text-2xl font-extrabold text-indigo-500">
               Complete your travel profile
             </h2>
             <form class="mt-8 space-y-6" action="#" method="POST">

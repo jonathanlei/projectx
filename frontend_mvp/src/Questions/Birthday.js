@@ -2,10 +2,10 @@ import { useState, useContext } from "react";
 import { Field, Label, TextInput } from "tailwind-react-ui";
 function Birthday() {
   return (
-    <div className="min-h-screen items-center justify-center bg-gray-50 p-10">
+    <div className="min-h-screen items-center justify-center bg-gray-50">
       <form
         className="flex items-center 
-      justify-center"
+      justify-center p-10"
       >
         <Field>
           <Label className="mb-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl sm:leading-none Cambria">

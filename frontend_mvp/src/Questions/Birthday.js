@@ -1,9 +1,6 @@
 import { useState, useContext } from "react";
-
 import { Field, Label, TextInput } from "tailwind-react-ui";
-function Zipcode() {
-  let [answers, setAnswers] = useState({});
-
+function Birthday() {
   return (
     <div className="min-h-screen items-center justify-center bg-gray-50 p-10">
       <form
@@ -12,9 +9,9 @@ function Zipcode() {
       >
         <Field>
           <Label className="mb-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl sm:leading-none Cambria">
-            What's your zipcode?
+            When's your Birthday?
           </Label>
-          <TextInput> </TextInput>
+          <input type="date"/>
         </Field>
       </form>
       <div>
@@ -25,5 +22,4 @@ function Zipcode() {
     </div>
   );
 }
-
-export default Zipcode;
+export default Birthday;

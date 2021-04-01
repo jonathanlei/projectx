@@ -1,9 +1,5 @@
-import { useState, useContext } from "react";
-
-import { Field, Label, TextInput } from "tailwind-react-ui";
-function Zipcode() {
-  let [answers, setAnswers] = useState({});
-
+import { Label, TextInput, Field } from "tailwind-react-ui";
+function Frequencies() {
   return (
     <div className="min-h-screen items-center justify-center bg-gray-50 p-10">
       <form
@@ -11,10 +7,8 @@ function Zipcode() {
       justify-center"
       >
         <Field>
-          <Label className="mb-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl sm:leading-none Cambria">
-            What's your zipcode?
-          </Label>
-          <TextInput> </TextInput>
+          <Label className="mb-5 text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl sm:leading-none Cambria">How often do you plan to travel after Covid?</Label>
+          <TextInput placeholder="once a year/ once a month..."> </TextInput>
         </Field>
       </form>
       <div>
@@ -26,4 +20,4 @@ function Zipcode() {
   );
 }
 
-export default Zipcode;
+export default Frequencies;

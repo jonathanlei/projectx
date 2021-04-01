@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SignupRadioQuestion from "./SignupRadioQuestion";
 import signupQuestions from "./signupQuestions";
 import SignupPage from "./SignupPage";
-import Zipcode from "./Questions/Zipcode";
+import Birthday from "./Questions/Birthday";
 
 /* SignupForm Component
 Props: signup function from Routes, App
@@ -96,7 +96,7 @@ function SignupForm({ signup }) {
     } else if (questionNumber === 3){
       return (<SignupPage handleEmail={handleEmail}></SignupPage>)
     } else {
-      return (<Zipcode/>)
+      return (<Birthday/>)
     }
 
   }

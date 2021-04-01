@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SignupRadioQuestion from "./SignupRadioQuestion";
 import signupQuestions from "./signupQuestions";
 import SignupPage from "./SignupPage";
-import SigninBox from "./SigninBox";
+import Zipcode from "./Questions/Zipcode";
 
 /* SignupForm Component
 Props: signup function from Routes, App
@@ -75,18 +75,35 @@ function SignupForm({ signup }) {
     goToNextQuestion();
   }
 
-  return (
-    <div className="SignupForm">
-      {questionNumber <= 2 ? (
+  function handleEmail(email){
+    setSurveyAnswers((prevAnswers) => ({
+      ...prevAnswers,
+      email,
+    }));
+    goToNextQuestion();
+  }
+
+  function chooseForm(){
+    if (questionNumber <= 2){
+      return (
         <div className="bg-gray-50 min-h-screen">
         <SignupRadioQuestion
           question={signupQuestions[questionNumber]}
           handleQuestionSubmission={handleQuestionSubmission}
         />
         </div>
-      ) : (
-        <SignupPage></SignupPage>
-      )}
+      )
+    } else if (questionNumber === 3){
+      return (<SignupPage handleEmail={handleEmail}></SignupPage>)
+    } else {
+      return (<Zipcode/>)
+    }
+
+  }
+
+  return (
+    <div className="SignupForm">
+      {chooseForm()}
     </div>
   );
 }

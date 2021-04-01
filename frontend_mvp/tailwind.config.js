@@ -2,7 +2,9 @@ module.exports = {
   purge: [],
   darkMode: "media", // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {outline: {
+      black: '2px solid #0000ff',
+    }},
   },
   variants: {
     extend: {},

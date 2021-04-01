@@ -1,5 +1,6 @@
 import { Flex, Box } from "tailwind-react-ui";
 import SigninBox from "./SigninBox";
+import { useState } from "react";
 
 import signup from "./static/assets/signup.jpg";
 const introTexts = [
@@ -7,7 +8,30 @@ const introTexts = [
   "Work with a Wander@ease curator and customize your plan - craft your dream vacation",
   "No subscription or hidden fees required",
 ];
-function SignupPage() {
+
+/* 
+props: 
+fn: handleEmail
+
+state: 
+none
+
+SignupForm -> SignupPage
+
+*/
+function SignupPage({ handleEmail }) {
+  let [email, setEmail] = useState("");
+
+  function handleEmailSubmit(evt) {
+    evt.preventDefault();
+    handleEmail(email);
+  }
+
+  function handleChange(evt) {
+    evt.preventDefault();
+    setEmail(evt.target.value);
+  }
+
   return (
     <div class="min-h-screen flex items-center justify-center bg-gray-50 py-1 px-1 sm:px-6 lg:px-8">
       <div class="min-w-md w-full space-y-5">
@@ -52,6 +76,7 @@ function SignupPage() {
                     name="email"
                     type="email"
                     autocomplete="email"
+                    onChange={handleChange}
                     required
                     class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                     placeholder="Email address"
@@ -59,18 +84,17 @@ function SignupPage() {
                 </div>
               </div>
 
-              <div>
-                <button
-                  type="submit"
-                  class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Continue with email
-                </button>
-              </div>
+              <div></div>
             </form>
+            <button
+              onClick={handleEmailSubmit}
+              class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            >
+              Continue with email
+            </button>
           </Box>
         </Flex>
-        <SigninBox/>
+        <SigninBox />
       </div>
     </div>
   );

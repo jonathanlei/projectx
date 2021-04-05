@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SignupRadioQuestion from "./SignupRadioQuestion";
 import signupQuestions from "./signupQuestions";
 import SignupPage from "./SignupPage";
-import Birthday from "./Questions/Birthday";
+import { QUESTION_ARRAY } from "./Questions/ProfileQuestion";
 
 /* SignupForm Component
 Props: signup function from Routes, App
@@ -75,7 +75,7 @@ function SignupForm({ signup }) {
     goToNextQuestion();
   }
 
-  function handleEmail(email){
+  function handleEmail(email) {
     setSurveyAnswers((prevAnswers) => ({
       ...prevAnswers,
       email,
@@ -83,29 +83,24 @@ function SignupForm({ signup }) {
     goToNextQuestion();
   }
 
-  function chooseForm(){
-    if (questionNumber <= 2){
+  function chooseForm() {
+    if (questionNumber <= 2) {
       return (
         <div className="bg-gray-50 min-h-screen">
-        <SignupRadioQuestion
-          question={signupQuestions[questionNumber]}
-          handleQuestionSubmission={handleQuestionSubmission}
-        />
+          <SignupRadioQuestion
+            question={signupQuestions[questionNumber]}
+            handleQuestionSubmission={handleQuestionSubmission}
+          />
         </div>
-      )
-    } else if (questionNumber === 3){
-      return (<SignupPage handleEmail={handleEmail}></SignupPage>)
+      );
+    } else if (questionNumber === 3) {
+      return <SignupPage handleEmail={handleEmail}></SignupPage>;
     } else {
-      return (<Birthday/>)
+      return (<div>{QUESTION_ARRAY[questionNumber - 4]}</div>);
     }
-
   }
 
-  return (
-    <div className="SignupForm">
-      {chooseForm()}
-    </div>
-  );
+  return <div className="SignupForm">{chooseForm()}</div>;
 }
 
 export default SignupForm;
